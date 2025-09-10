@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+Liste des étudiants : <b>{{e |length }}</b>
+{% for ee in e %}
+<ul>
+    <li>{{ee.nom}}</li>
+    <li>{{ee.prenom}}</li>
+    <li>{{ee.classe}}</li>
+    <li><a href="{% url 'update' %}">Update</a></li>
+</ul>
+{% endfor %}
+</body>
+</html>
