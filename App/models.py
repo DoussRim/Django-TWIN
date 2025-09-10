@@ -13,11 +13,11 @@ class User(models.Model):
     def __str__(self):
         return f'le nom est {self.nom} le prenom est {self.prenom}'
 class Etudiant(User):
-    groupe=models.CharField(max_length=30)
+    groupe=models.CharField(max_length=200)
 class Coach(User):
     pass
 class Project(models.Model):
-    nom_projet=models.CharField('Titre du Projet',max_length=30)
+    nom_projet=models.CharField('Titre du Projet',max_length=200)
     duree_projet=models.IntegerField(default=0)
     temps_alloue_par_createur=models.IntegerField('Temps Alloue',validators=[MinValueValidator(1), MaxValueValidator(10)])
     besoins=models.TextField(max_length=100)
@@ -46,16 +46,16 @@ class MemberShipInProject(models.Model):
 
 '''Examen Covid'''
 class Utilisateur(models.Model):
-    nom=models.CharField('Nom',max_length=30)
-    prenom=models.CharField('Prenom',max_length=30)
+    nom=models.CharField('Nom',max_length=200)
+    prenom=models.CharField('Prenom',max_length=200)
     email=models.EmailField('Email')
 class Option(models.Model):
-    libelle=models.CharField('Libelle',max_length=30)
-    description=models.CharField('Description',max_length=30)
+    libelle=models.CharField('Libelle',max_length=200)
+    description=models.CharField('Description',max_length=200)
     def __str__(self):
         return self.libelle
 class Etudiantt(Utilisateur):
-    classe=models.CharField('Classe',max_length=30)
+    classe=models.CharField('Classe',max_length=200)
     option = models.ForeignKey(
         Option,
         on_delete=models.SET_NULL,
